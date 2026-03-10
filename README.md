@@ -6,7 +6,7 @@ This project predicts the final score of an IPL cricket match using machine lear
 
 ## Objective
 
-The main objective of this project is to build a machine learning model that can accurately predict the final score of an IPL match using past match statistics and match conditions. This helps demonstrate how data science and predictive analytics can be applied in sports analytics.
+The main objective of this project is to build a machine learning model that can accurately predict the final score of an IPL match using past match statistics and match conditions. This demonstrates how data science and predictive analytics can be applied in sports analytics.
 
 ---
 
@@ -51,6 +51,33 @@ The model was trained on historical IPL match data to predict the final score of
 
 ---
 
+## Model Performance
+
+The Random Forest Regressor model was trained using historical IPL match data and evaluated on a test dataset.
+
+**Model Accuracy: 71%**
+
+The model predicts the expected final score based on match parameters such as:
+
+* Runs scored
+* Overs completed
+* Wickets fallen
+* Batting team
+* Bowling team
+* Recent match performance
+
+---
+
+## Features
+
+* Predict IPL match final score using machine learning
+* Uses historical IPL match dataset
+* Random Forest Regressor model for prediction
+* Web interface built using Django
+* User can input match conditions to estimate final score
+
+---
+
 ## Project Workflow
 
 1. Data Collection
@@ -74,8 +101,8 @@ ipl-score-prediction
 ├── templates
 │
 ├── IPL_FINAL.csv        # Dataset
-├── IPL2.pkl             # Trained ML model
-├── M3-RFR.ipynb         # Jupyter notebook for model training
+├── IPL2.pkl             # Trained Machine Learning Model
+├── M3-RFR.ipynb         # Jupyter Notebook for Model Training
 │
 ├── views.py
 ├── models.py
@@ -91,31 +118,31 @@ ipl-score-prediction
 
 ## How to Run the Project
 
-1. Clone the repository
+### 1. Clone the repository
 
 ```
 git clone https://github.com/yourusername/ipl-score-prediction.git
 ```
 
-2. Navigate to the project directory
+### 2. Navigate to the project directory
 
 ```
 cd ipl-score-prediction
 ```
 
-3. Install required libraries
+### 3. Install required libraries
 
 ```
 pip install -r requirements.txt
 ```
 
-4. Run the Django server
+### 4. Run the Django server
 
 ```
 python manage.py runserver
 ```
 
-5. Open the browser and go to
+### 5. Open the browser
 
 ```
 http://127.0.0.1:8000/
@@ -142,4 +169,4 @@ The trained Random Forest Regressor model predicts the expected final score of t
 
 **Sasidhar M**
 MSc Data Science Student
-
+Interested in Data Science, Machine Learning, and Sports Analytics
