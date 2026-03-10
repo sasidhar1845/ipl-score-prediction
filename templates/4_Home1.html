@@ -1,0 +1,350 @@
+
+        
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Home page</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="/static/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="/static/lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/static/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid">
+        <div class="row bg-secondary py-2 px-lg-5">
+            <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center">
+                   
+                </div>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-white px-3" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-white px-3" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-white px-3" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-white px-3" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-white pl-3" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row py-3 px-lg-5">
+            <div class="col-lg-4">
+                <a href="" class="navbar-brand d-none d-lg-block">
+                    <h1 class="m-0 display-5 text-capitalize"><span class="text-primary">Animal </span>Detection</h1>
+                </a>
+            </div>
+            <div class="col-lg-8 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <div class="d-inline-flex flex-column text-center pr-3 border-right">
+                        <h6>Time</h6>
+                        <p class="m-0" id="current-time"></p>
+                    </div>
+                    <div class="d-inline-flex flex-column text-center px-3 border-right">
+                        <h6>Date</h6>
+                        <p class="m-0" id="current-date"></p>
+                    </div>
+                    
+                    <script>
+                        function updateTime() {
+                            const now = new Date();
+                            
+                            // Format the time (HH:MM:SS AM/PM)
+                            const hours = now.getHours();
+                            const minutes = now.getMinutes().toString().padStart(2, '0');
+                            const seconds = now.getSeconds().toString().padStart(2, '0');
+                            const ampm = hours >= 12 ? 'PM' : 'AM';
+                            const formattedTime = `${hours % 12 || 12}:${minutes}:${seconds} ${ampm}`;
+                            
+                            // Format the date (e.g., January 8, 2025)
+                            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                            const formattedDate = now.toLocaleDateString(undefined, options);
+                            
+                            // Update the HTML elements
+                            document.getElementById('current-time').textContent = formattedTime;
+                            document.getElementById('current-date').textContent = formattedDate;
+                        }
+                    
+                        // Update time every second
+                        setInterval(updateTime, 1000);
+                        updateTime(); // Call immediately to display current time/date on load
+                    </script>
+                    
+                    <div class="d-inline-flex flex-column text-center px-3 border-right">
+                        <h6>Name</h6>
+                        <p class="m-0">{{ username }}</p>
+                        
+                    </div>
+                    <div class="d-inline-flex flex-column text-center px-3 border-right">
+                        <h6>Email</h6>
+                        
+                        <p class="m-0">{{ email }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-lg-5">
+            <a href="" class="navbar-brand d-block d-lg-none">
+                <h1 class="m-0 display-5 text-capitalize font-italic text-white"><span class="text-primary">Safety</span>First</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
+                <div class="navbar-nav mr-auto py-0">
+                    <a href="{% url 'Home_4' %}" class="nav-item nav-link active">Home</a>
+                    <a href="{% url 'Deploy_9' %}" class="nav-item nav-link">Live Detect</a>
+                    <a href="{% url 'Per_Database_10' %}" class="nav-item nav-link">Database</a>
+                    
+                    
+                    
+                </div>
+                <a href="{% url 'Landing_1' %}" class="btn btn-lg btn-primary px-3 d-none d-lg-block">Logout</a>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0">
+        <div id="header-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="https://images.pexels.com/photos/2220336/pexels-photo-2220336.jpeg?cs=srgb&dl=pexels-alexasfotos-2220336.jpg&fm=jpg" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h3 class="text-white mb-3 d-none d-sm-block">Deep Learning</h3>
+                                    <h1 class="display-3 text-white mb-3">Animal Detection </h1>
+                                    <h5 class="text-white mb-3 d-none d-sm-block">using opencv yolov8</h5>
+                            <a href="{% url 'Deploy_9' %}" class="btn btn-lg btn-primary mt-3 mt-md-4 px-4">Live Detect</a>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+
+    
+
+
+    <!-- About Start -->
+    <div class="container py-5">
+        <div class="row py-5">
+            <div class="col-lg-7 pb-5 pb-lg-0 px-3 px-lg-5">
+                <h4 class="text-secondary mb-3">About Us</h4>
+                <h1 class="display-4 mb-4"><span class="text-primary">Wild Animal</span> & <span class="text-secondary">Detection</span></h1>
+                <h5 class="text-muted mb-3">Enhancing safety and wildlife conservation through advanced detection techniques.</h5>
+                <p class="mb-4">
+                    Wild animal detection using OpenCV leverages computer vision and image processing technologies to identify and track animals in real-time. 
+                    By utilizing powerful algorithms, this system helps in monitoring wildlife and ensuring safety in areas prone to animal intrusions.
+                </p>
+                <ul class="list-inline">
+                    <li>
+                        <h5>
+                            <i class="fa fa-check-double text-secondary mr-3"></i>Real-Time Detection
+                        </h5>
+                    </li>
+                    <li>
+                        <h5>
+                            <i class="fa fa-check-double text-secondary mr-3"></i>Accurate Identification
+                        </h5>
+                    </li>
+                    <li>
+                        <h5>
+                            <i class="fa fa-check-double text-secondary mr-3"></i>Supports Wildlife Monitoring
+                        </h5>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="col-lg-5">
+                <div class="row px-3">
+                    <div class="col-12 p-0">
+                        <img class="img-fluid w-100" src="https://img.freepik.com/premium-photo/wild-animal-collage_1091144-54508.jpg?semt=ais_hybrid" alt="">
+                    </div>
+                    <div class="col-6 p-0">
+                        <img class="img-fluid w-100" src="https://images.unsplash.com/photo-1508817628294-5a453fa0b8fb?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHdpbGQlMjBhbmltYWx8ZW58MHx8MHx8fDA%3D" alt="">
+                    </div>
+                    <div class="col-6 p-0">
+                        <img class="img-fluid w-100" src="https://c0.wallpaperflare.com/preview/239/723/610/wallpaper-background-jaguar-wildlife.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Services Start -->
+    <div class="container-fluid bg-light pt-5">
+        <div class="container py-5">
+            <div class="d-flex flex-column text-center mb-5">
+                <h4 class="text-secondary mb-3">Our Technology</h4>
+                <h1 class="display-4 m-0"><span class="text-primary">Wild Animals</span> Detection</h1>
+            </div>
+            <div class="row pb-3">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                        <h3 class="flaticon-camera display-3 font-weight-normal text-secondary mb-3"></h3>
+                        <h3 class="mb-3">Real-time Detection</h3>
+                        <p>Using advanced OpenCV techniques, our system identifies wild animals in real-time, ensuring accurate and efficient monitoring in their natural habitats.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                        <h3 class="flaticon-forest display-3 font-weight-normal text-secondary mb-3"></h3>
+                        <h3 class="mb-3">Habitat Analysis</h3>
+                        <p>Support wildlife conservation with detailed data on animal populations, helping in effective planning and execution of protection programs.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                        <h3 class="flaticon-alert display-3 font-weight-normal text-secondary mb-3"></h3>
+                        <h3 class="mb-3">Alert Systems</h3>
+                        <p>Our detection system sends instant alerts when wild animals are detected near restricted or human-inhabited zones, ensuring safety for all.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                        <h3 class="flaticon-computer display-3 font-weight-normal text-secondary mb-3"></h3>
+                        <h3 class="mb-3">Machine Learning Integration</h3>
+                        <p>Leveraging machine learning models with OpenCV, we continuously improve detection accuracy, adapting to various species and conditions.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                        <h3 class="flaticon-binoculars display-3 font-weight-normal text-secondary mb-3"></h3>
+                        <h3 class="mb-3">Surveillance</h3>
+                        <p>Our system integrates with surveillance cameras to monitor vast wildlife reserves, reducing manual intervention and increasing efficiency.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                        <h3 class="flaticon-shield display-3 font-weight-normal text-secondary mb-3"></h3>
+                        <h3 class="mb-3">Conservation Efforts</h3>
+                        <p>Support wildlife conservation with detailed data on animal populations, helping in effective planning and execution of protection programs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Services End -->
+
+
+    <!-- Features Start -->
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5">
+                <img class="img-fluid w-100" src="https://i.pinimg.com/originals/30/a0/65/30a0659df95e7a34b07010ad724478ba.png" alt="">
+            </div>
+            <div class="col-lg-7 py-5 py-lg-0 px-3 px-lg-5">
+                <h4 class="text-secondary mb-3">Why Choose Us?</h4>
+                <h1 class="display-4 mb-4"><span class="text-primary">Wild Animal Detection</span> Using OpenCV</h1>
+                <p class="mb-4">Our advanced detection system utilizes OpenCV and machine learning algorithms to efficiently identify and track wild animals in various environments. With this technology, we aim to enhance wildlife conservation efforts and improve safety in wildlife sanctuaries and reserves.</p>
+                <div class="row py-2">
+                    <div class="col-6">
+                        <div class="d-flex align-items-center mb-4">
+                            <h1 class="flaticon-paw font-weight-normal text-secondary m-0 mr-3"></h1>
+                            <h5 class="text-truncate m-0">Real-Time Detection</h5>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex align-items-center mb-4">
+                            <h1 class="flaticon-camera font-weight-normal text-secondary m-0 mr-3"></h1>
+                            <h5 class="text-truncate m-0">High Accuracy</h5>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex align-items-center">
+                            <h1 class="flaticon-wildlife font-weight-normal text-secondary m-0 mr-3"></h1>
+                            <h5 class="text-truncate m-0">Adaptive Algorithms</h5>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex align-items-center">
+                            <h1 class="flaticon-security font-weight-normal text-secondary m-0 mr-3"></h1>
+                            <h5 class="text-truncate m-0">Enhanced Safety</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- Features End -->
+
+
+    
+    
+
+
+    
+
+    
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="/static/https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/static/https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/lib/easing/easing.min.js"></script>
+    <script src="/static/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/static/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="/static/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="/static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="/static/mail/jqBootstrapValidation.min.js"></script>
+    <script src="/static/mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/static/js/main.js"></script>
+</body>
+
+</html>

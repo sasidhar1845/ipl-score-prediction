@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPL Prediction Result</title>
+<style>
+/* 🌈 Background & Animation */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #2b5876, #4e4376, #7f7fd5, #91eae4);
+    background-size: 300% 300%;
+    animation: bgShift 10s ease infinite;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+@keyframes bgShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 🏏 Main Container */
+.container22 {
+    max-width: 850px;
+    margin: 80px auto;
+    padding: 40px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    backdrop-filter: blur(8px);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.container22:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* 🏆 Title */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+header h1 {
+    font-size: 3rem;
+    color: #1a237e;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+}
+header p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* 🌟 Prediction Result Box */
+.result-box {
+    text-align: center;
+    background: linear-gradient(90deg, #43cea2, #185a9d);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 20px rgba(24,90,157,0.4);
+    animation: glow 2s infinite alternate;
+}
+@keyframes glow {
+    from { box-shadow: 0 0 10px #43cea2; }
+    to { box-shadow: 0 0 25px #185a9d; }
+}
+
+/* 📊 Chart Image */
+.result-box img {
+    margin-top: 15px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    transition: transform 0.4s ease;
+}
+.result-box img:hover {
+    transform: scale(1.05);
+}
+
+/* 🧾 Section Headings */
+h2 {
+    font-size: 1.8rem;
+    color: #0d47a1;
+    margin-top: 35px;
+    border-left: 5px solid #ffca28;
+    padding-left: 10px;
+}
+
+/* 🗂️ Lists */
+ul {
+    list-style-type: circle;
+    margin: 15px 0 15px 40px;
+    color: #444;
+}
+ul li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* 💬 Paragraphs */
+p {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* ⚡ Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+/* 🎆 Animation on Load */
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+.container22 {
+    animation: fadeInUp 1.5s ease;
+}
+
+/* 🔘 Back Button */
+.btn-back {
+    display: inline-block;
+    background: linear-gradient(90deg, #fbc02d, #f57c00);
+    color: white;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+.btn-back:hover {
+    background: linear-gradient(90deg, #f57c00, #fbc02d);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(245, 124, 0, 0.4);
+}
+</style>
+</head>
+
+<body>
+    <div class="container22">
+        <header>
+            <h1>🏏 IPL Prediction Result</h1>
+            <p>Your AI-powered match score insight</p>
+        </header>
+
+        <!-- 🎯 Prediction Box -->
+        <div class="result-box">
+            {{ prediction_text }}
+            <br><br>
+            <img src="data:image/png;base64,{{ plot_base64 }}" alt="Prediction Chart" width="100%">
+        </div>
+
+        <!-- 📋 Example Details Section -->
+        <div class="details">
+            <h2>Match Highlights</h2>
+            <ul>
+                <li><strong>Venue:</strong> Dynamic Stadium</li>
+                <li><strong>Pitch Condition:</strong> Batting Friendly</li>
+                <li><strong>Weather:</strong> Clear & Warm</li>
+            </ul>
+        </div>
+
+        <div class="recommendations">
+            <h2>Insights</h2>
+            <p>The batting side is likely to maintain a consistent run rate. 
+            Based on the last 5 overs and strike rate, a total score between <strong>180–200 runs</strong> seems achievable.</p>
+        </div>
+
+        <footer>
+           
+            <br><br>
+            <a href="/" class="btn-back">← Back to Prediction</a>
+        </footer>
+    </div>
+</body>
+</html>
