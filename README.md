@@ -121,7 +121,7 @@ ipl-score-prediction
 ### 1. Clone the repository
 
 ```
-git clone https://github.com/yourusername/ipl-score-prediction.git
+git clone [https://github.com/yourusername/ipl-score-prediction.git](https://github.com/sasidhar1845/ipl-score-prediction)
 ```
 
 ### 2. Navigate to the project directory
