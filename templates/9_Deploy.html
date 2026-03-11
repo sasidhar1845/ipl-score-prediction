@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,3 +83,89 @@
   </div>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Animal Detection Upload</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                  url('https://www.hdwallpapers.in/download/big_lion_is_lying_down_on_green_grass_in_forest_background_with_baby_lion_4k_5k_hd_animals-3840x2160.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: #00e676;
+    }
+
+    input[type="file"] {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background-color: #f5f5f5;
+      color: #000;
+      font-size: 16px;
+    }
+
+    .btn {
+      padding: 15px 35px;
+      font-size: 18px;
+      margin-top: 30px;
+      background: linear-gradient(to right, #00c853, #64dd17);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: linear-gradient(to right, #64dd17, #00c853);
+      transform: scale(1.05);
+    }
+
+    video, img {
+      width: 720px;
+      height: auto;
+      border: 5px solid #fff;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Upload Video for Animal Detection</h1>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="file" name="video" accept="video/*" required><br><br>
+      <button type="submit" class="btn">Start Detection</button>
+    </form>
+    <br>
+    {% if request.method == "POST" %}
+      <img src="{% url 'Deploy_9' %}" alt="Live Detection Feed">
+    {% endif %}
+  </div>
+</body>
+</html>
+>>>>>>> a04fe4c8960c8e20a35f15e5a1de8607cf348ab8

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -262,3 +263,269 @@
     </script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Score Prediction</title>
+    <style>
+        /* 🌈 Background and Fonts */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #0d47a1, #1976d2, #42a5f5);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease infinite;
+            color: #333;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 🌟 Main Container */
+        .container {
+            width: 600px;
+            margin: 50px auto;
+            background: #ffffffee;
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 35px 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        .container:hover {
+            transform: scale(1.01);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        /* 🏏 Title */
+        h2 {
+            text-align: center;
+            color: #0d47a1;
+            font-size: 26px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: #ffca28;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+
+        /* ⚙️ Labels and Inputs */
+        form label {
+            display: block;
+            font-weight: 600;
+            color: #222;
+            margin-top: 15px;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 10px 12px;
+            margin-top: 6px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        select:focus, input:focus {
+            border-color: #1976d2;
+            outline: none;
+            box-shadow: 0 0 8px rgba(25, 118, 210, 0.5);
+        }
+
+        /* 💥 Button */
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 12px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #ff9800, #f44336);
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #f44336, #ff9800);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(244, 67, 54, 0.3);
+        }
+
+        /* 🌐 Responsive Design */
+        @media (max-width: 700px) {
+            .container {
+                width: 90%;
+                padding: 25px;
+            }
+            h2 {
+                font-size: 22px;
+            }
+        }
+
+        /* 🏏 Decorative Emoji Animation */
+        .emoji {
+            text-align: center;
+            font-size: 30px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji">🏏🔥</div>
+        <h2>IPL Score Prediction</h2>
+
+        <form method="POST" onsubmit="return validateTeams()">
+            {% csrf_token %}
+
+            <label>Batting Team</label>
+            <select id="batting_team" name="batting_team" required onchange="checkTeams()">
+                <option value="">-- Select Team --</option>
+                <option value="0">Chennai Super Kings</option>
+                <option value="1">Delhi Capitals</option>
+                <option value="2">Gujarat Titans</option>
+                <option value="3">Kolkata Knight Riders</option>
+                <option value="4">Lucknow Super Giants</option>
+                <option value="5">Mumbai Indians</option>
+                <option value="6">Punjab Kings</option>
+                <option value="7">Rajasthan Royals</option>
+                <option value="8">Royal Challengers Bangalore</option>
+                <option value="9">Sunrisers Hyderabad</option>
+            </select>
+
+            <label>Bowling Team</label>
+            <select id="bowling_team" name="bowling_team" required onchange="checkTeams()">
+                <option value="">-- Select Team --</option>
+                <option value="0">Chennai Super Kings</option>
+                <option value="1">Delhi Capitals</option>
+                <option value="2">Gujarat Titans</option>
+                <option value="3">Kolkata Knight Riders</option>
+                <option value="4">Lucknow Super Giants</option>
+                <option value="5">Mumbai Indians</option>
+                <option value="6">Punjab Kings</option>
+                <option value="7">Rajasthan Royals</option>
+                <option value="8">Royal Challengers Bangalore</option>
+                <option value="9">Sunrisers Hyderabad</option>
+            </select>
+
+            <label>Venue</label>
+            <select name="venue" required>
+                <option value="">-- Select Stadium --</option>
+                <option value="3">M. A. Chidambaram Stadium</option>
+                <option value="5">Narendra Modi Stadium</option>
+                <option value="8">Sawai Mansingh Stadium</option>
+                <option value="7">Rajiv Gandhi International Stadium</option>
+                <option value="4">M. Chinnaswamy Stadium</option>
+                <option value="0">Arun Jaitley Stadium</option>
+                <option value="2">Ekana Cricket Stadium</option>
+                <option value="9">Wankhede Stadium</option>
+                <option value="6">PCA Stadium</option>
+                <option value="1">Eden Gardens</option>
+            </select>
+
+            <label>Pitch Condition</label>
+            <select name="pitch_condition" required>
+                <option value="">-- Select Pitch Condition --</option>
+                <option value="3">Good</option>
+                <option value="0">Dry</option>
+                <option value="4">Green</option>
+                <option value="1">Dusty</option>
+                <option value="5">Slow</option>
+                <option value="2">Flat</option>
+            </select>
+
+            <label>Temperature (°C)</label>
+            <input type="number" step="any" name="temperature" required>
+
+            <label>Humidity (%)</label>
+            <input type="number" step="any" name="humidity" required>
+
+            <label>Overs Completed</label>
+            <input type="number" step="any" name="overs_completed" required>
+
+            <label>Runs Scored</label>
+            <input type="number" name="runs_scored" required>
+
+            <label>Wickets Lost</label>
+            <input type="number" name="wickets_lost" required>
+
+            <label>Run Rate</label>
+            <input type="number" step="any" name="run_rate" required>
+
+            <label>Last 5 Overs Runs</label>
+            <input type="number" name="last_5_overs_runs" required>
+
+            <label>Striker Strike Rate</label>
+            <input type="number" step="any" name="striker_strike_rate" required>
+
+            <label>Non-Striker Strike Rate</label>
+            <input type="number" step="any" name="non_striker_strike_rate" required>
+
+            <label>Partnership Runs</label>
+            <input type="number" name="partnership_runs" required>
+
+            <label>Boundaries Hit</label>
+            <input type="number" name="boundaries_hit" required>
+
+            <label>Extras Conceded</label>
+            <input type="number" name="extras_conceded" required>
+
+            <button type="submit">Predict Now ⚡</button>
+        </form>
+    </div>
+
+    <!-- 🚫 JS Validation -->
+    <script>
+        function checkTeams() {
+            const batting = document.getElementById("batting_team").value;
+            const bowling = document.getElementById("bowling_team").value;
+
+            if (batting && bowling && batting === bowling) {
+                alert("⚠️ Batting and Bowling teams cannot be the same!");
+                document.getElementById("bowling_team").value = "";
+            }
+        }
+
+        function validateTeams() {
+            const batting = document.getElementById("batting_team").value;
+            const bowling = document.getElementById("bowling_team").value;
+
+            if (batting === bowling) {
+                alert("Please select different teams for batting and bowling!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
+>>>>>>> a04fe4c8960c8e20a35f15e5a1de8607cf348ab8
